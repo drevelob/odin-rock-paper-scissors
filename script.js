@@ -25,7 +25,9 @@ function getComputerChoice() {
   return computerChoice;
 }
 
-function getPlayerChoice(input) {
+function getPlayerChoice() {
+
+  let input = prompt('Please type your choice');
 
   if (input) {
     let playerChoice = input.toLowerCase();
@@ -37,7 +39,10 @@ function getPlayerChoice(input) {
     ) {
       return playerChoice;
     }
-    return 'Incorrect input';
+    console.log('Incorrect input');
+    return getPlayerChoice();
+  } else {
+    return getPlayerChoice();
   }
 }
 
