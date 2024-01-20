@@ -40,3 +40,32 @@ function getPlayerChoice(input) {
     return 'Incorrect input';
   }
 }
+
+function playRound(playerSelection, computerSelection) {
+
+  console.log(playerSelection, computerSelection)
+
+  let result;
+
+  if (
+    (playerSelection === ROCK && computerSelection === PAPER) ||
+    (playerSelection === PAPER && computerSelection === SCISSORS) ||
+    (playerSelection === SCISSORS && computerSelection === ROCK)
+  ) {
+    result = `You Lose! ${computerSelection.toUpperCase()} beats ${playerSelection.toUpperCase()}`;
+  } else if (
+    (playerSelection === ROCK && computerSelection === SCISSORS) ||
+    (playerSelection === PAPER && computerSelection === ROCK) ||
+    (playerSelection === SCISSORS && computerSelection === PAPER)
+  ) {
+    result = `You Win! ${playerSelection.toUpperCase()} beats ${computerSelection.toUpperCase()}`;
+  } else {
+    return playRound(getPlayerChoice('rock'), getComputerChoice());
+  }
+
+  return result;
+}
+
+const playerSelection = getPlayerChoice('rock');
+const computerSelection = getComputerChoice();
+console.log(playRound(playerSelection, computerSelection));
