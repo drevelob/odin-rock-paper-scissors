@@ -24,3 +24,19 @@ function getComputerChoice() {
 
   return computerChoice;
 }
+
+function getPlayerChoice(input) {
+
+  if (input) {
+    let playerChoice = input.toLowerCase();
+
+    if (
+      playerChoice === ROCK ||
+      playerChoice === PAPER ||
+      playerChoice === SCISSORS
+    ) {
+      return playerChoice;
+    }
+    return 'Incorrect input';
+  }
+}
