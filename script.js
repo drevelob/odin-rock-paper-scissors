@@ -46,11 +46,11 @@ function getPlayerChoice() {
   }
 }
 
-function playRound(playerSelection, computerSelection) {
-
-  console.log(playerSelection, computerSelection)
+function playRound() {
 
   let result;
+  let playerSelection = getPlayerChoice(); 
+  let computerSelection = getComputerChoice();
 
   if (
     (playerSelection === ROCK && computerSelection === PAPER) ||
@@ -65,12 +65,69 @@ function playRound(playerSelection, computerSelection) {
   ) {
     result = `You Win! ${playerSelection.toUpperCase()} beats ${computerSelection.toUpperCase()}`;
   } else {
-    return playRound(getPlayerChoice('rock'), getComputerChoice());
+    console.log('Draw!')
+    return playRound();
   }
 
   return result;
 }
 
-const playerSelection = getPlayerChoice('rock');
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+function game() {
+
+  let playerScore = 0;
+  let computerScore = 0;
+  let gameWinner;
+  let result;
+
+  result = playRound();
+  console.log(result);
+
+  if (result.charAt(4) === 'W') {
+    playerScore++;
+  } else {
+    computerScore++;
+  }
+  
+  result = playRound();
+  console.log(result);
+
+  if (result.charAt(4) === 'W') {
+    playerScore++;
+  } else {
+    computerScore++;
+  }
+  
+  result = playRound();
+  console.log(result);
+
+  if (result.charAt(4) === 'W') {
+    playerScore++;
+  } else {
+    computerScore++;
+  }
+  
+  result = playRound();
+  console.log(result);
+
+  if (result.charAt(4) === 'W') {
+    playerScore++;
+  } else {
+    computerScore++;
+  }
+  
+  result = playRound();
+  console.log(result);
+
+  if (result.charAt(4) === 'W') {
+    playerScore++;
+  } else {
+    computerScore++;
+  }
+  
+  playerScore > computerScore
+    ? (gameWinner = 'Player')
+    : (gameWinner = 'Computer');
+  return `${gameWinner} Winner!`;
+}
+
+console.log(game());
