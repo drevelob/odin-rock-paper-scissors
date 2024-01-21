@@ -1,6 +1,13 @@
 const ROCK = 'rock';
 const PAPER = 'paper';
 const SCISSORS = 'scissors';
+const WELCOME_MESSAGE = `
+>>-- The Odin Project | Foundations Course | JavaScript Basics --<<
+>>---------------------------------------------------------------<<
+>>----------------| PROJECT ROCK PAPER SCISSORS |----------------<<
+>>---------------------------------------------------------------<<
+>>--------------------------- drevelob --------------------------<<
+`;
 
 function getComputerChoice() {
 
@@ -39,7 +46,7 @@ function getPlayerChoice() {
     ) {
       return playerChoice;
     }
-    console.log('Incorrect input');
+    console.log('***| Incorrect input |***');
     return getPlayerChoice();
   } else {
     return getPlayerChoice();
@@ -49,7 +56,7 @@ function getPlayerChoice() {
 function playRound() {
 
   let result;
-  let playerSelection = getPlayerChoice(); 
+  let playerSelection = getPlayerChoice();
   let computerSelection = getComputerChoice();
 
   if (
@@ -57,15 +64,15 @@ function playRound() {
     (playerSelection === PAPER && computerSelection === SCISSORS) ||
     (playerSelection === SCISSORS && computerSelection === ROCK)
   ) {
-    result = `You Lose! ${computerSelection.toUpperCase()} beats ${playerSelection.toUpperCase()}`;
+    result = `***| You Lose! ${computerSelection.toUpperCase()} beats ${playerSelection.toUpperCase()} (╥﹏╥) |***`;
   } else if (
     (playerSelection === ROCK && computerSelection === SCISSORS) ||
     (playerSelection === PAPER && computerSelection === ROCK) ||
     (playerSelection === SCISSORS && computerSelection === PAPER)
   ) {
-    result = `You Win! ${playerSelection.toUpperCase()} beats ${computerSelection.toUpperCase()}`;
+    result = `***| You Win! ${playerSelection.toUpperCase()} beats ${computerSelection.toUpperCase()} (っ◕‿◕)っ |***`;
   } else {
-    console.log('Draw!')
+    console.log('***| Draw! |***');
     return playRound();
   }
 
@@ -82,52 +89,53 @@ function game() {
   result = playRound();
   console.log(result);
 
-  if (result.charAt(4) === 'W') {
+  if (result.charAt(9) === 'W') {
     playerScore++;
   } else {
     computerScore++;
   }
-  
+
   result = playRound();
   console.log(result);
 
-  if (result.charAt(4) === 'W') {
+  if (result.charAt(9) === 'W') {
     playerScore++;
   } else {
     computerScore++;
   }
-  
+
   result = playRound();
   console.log(result);
 
-  if (result.charAt(4) === 'W') {
+  if (result.charAt(9) === 'W') {
     playerScore++;
   } else {
     computerScore++;
   }
-  
+
   result = playRound();
   console.log(result);
 
-  if (result.charAt(4) === 'W') {
+  if (result.charAt(9) === 'W') {
     playerScore++;
   } else {
     computerScore++;
   }
-  
+
   result = playRound();
   console.log(result);
 
-  if (result.charAt(4) === 'W') {
+  if (result.charAt(9) === 'W') {
     playerScore++;
   } else {
     computerScore++;
   }
-  
+
   playerScore > computerScore
     ? (gameWinner = 'Player')
     : (gameWinner = 'Computer');
-  return `${gameWinner} Winner!`;
+  return `***| ${gameWinner} Winner!!! ＼(￣O￣) |***`;
 }
 
+console.log(WELCOME_MESSAGE);
 console.log(game());
