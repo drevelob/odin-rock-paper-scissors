@@ -138,4 +138,3 @@ function game() {
 }
 
 console.log(WELCOME_MESSAGE);
-console.log(game());
