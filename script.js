@@ -8,6 +8,11 @@ const WELCOME_MESSAGE = `
 >>---------------------------------------------------------------<<
 >>--------------------------- drevelob --------------------------<<
 `;
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+  button.addEventListener('click', playRound);
+});
 
 function getComputerChoice() {
 
@@ -56,7 +61,7 @@ function getPlayerChoice() {
 function playRound() {
 
   let result;
-  let playerSelection = getPlayerChoice();
+  let playerSelection = this.value;
   let computerSelection = getComputerChoice();
 
   if (
@@ -72,10 +77,10 @@ function playRound() {
   ) {
     result = `***| You Win! ${playerSelection.toUpperCase()} beats ${computerSelection.toUpperCase()} (っ◕‿◕)っ |***`;
   } else {
-    console.log('***| Draw! |***');
-    return playRound();
+    result = '***| Draw! |***';
   }
 
+  console.log(result);
   return result;
 }
 
