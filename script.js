@@ -9,6 +9,8 @@ const WELCOME_MESSAGE = `
 >>--------------------------- drevelob --------------------------<<
 `;
 const buttons = document.querySelectorAll('button');
+const resultContainer = document.querySelector('.result-container');
+const resultMessage = document.querySelector('.result-message');
 
 buttons.forEach((button) => {
   button.addEventListener('click', playRound);
@@ -69,19 +71,38 @@ function playRound() {
     (playerSelection === PAPER && computerSelection === SCISSORS) ||
     (playerSelection === SCISSORS && computerSelection === ROCK)
   ) {
-    result = `***| You Lose! ${computerSelection.toUpperCase()} beats ${playerSelection.toUpperCase()} (╥﹏╥) |***`;
+    result = 0
   } else if (
     (playerSelection === ROCK && computerSelection === SCISSORS) ||
     (playerSelection === PAPER && computerSelection === ROCK) ||
     (playerSelection === SCISSORS && computerSelection === PAPER)
   ) {
-    result = `***| You Win! ${playerSelection.toUpperCase()} beats ${computerSelection.toUpperCase()} (っ◕‿◕)っ |***`;
-  } else {
-    result = '***| Draw! |***';
+    result = 1;
   }
 
-  console.log(result);
-  return result;
+  function displayResult(result) {
+
+    let message;
+
+    switch (result) {
+      case 1:
+        message = `You Win! ${playerSelection.toUpperCase()} beats 
+        ${computerSelection.toUpperCase()} (っ◕‿◕)っ`;
+        break;
+      case 0:
+        message = `You Lose! ${computerSelection.toUpperCase()} beats 
+        ${playerSelection.toUpperCase()} (╥﹏╥)`;
+        break;
+      default:
+        message = 'Draw! ( ¬_¬)';
+        break;
+    }
+
+    resultMessage.innerText = message;
+    resultContainer.appendChild(resultMessage);
+  }
+
+  return displayResult(result);
 }
 
 function game() {
