@@ -13,6 +13,7 @@ const resultContainer = document.querySelector('.result-container');
 const resultMessage = document.querySelector('.result-message');
 const playerScore = document.querySelector('.player');
 const computerScore = document.querySelector('.computer');
+
 playerScore.innerText = 0;
 computerScore.innerText = 0;
 
@@ -41,27 +42,6 @@ function getComputerChoice() {
   }
 
   return computerChoice;
-}
-
-function getPlayerChoice() {
-
-  let input = prompt('Please type your choice');
-
-  if (input) {
-    let playerChoice = input.toLowerCase();
-
-    if (
-      playerChoice === ROCK ||
-      playerChoice === PAPER ||
-      playerChoice === SCISSORS
-    ) {
-      return playerChoice;
-    }
-    console.log('***| Incorrect input |***');
-    return getPlayerChoice();
-  } else {
-    return getPlayerChoice();
-  }
 }
 
 function playRound() {
@@ -118,64 +98,6 @@ function playRound() {
   }
 
   return displayResult(result);
-}
-
-function game() {
-
-  let playerScore = 0;
-  let computerScore = 0;
-  let gameWinner;
-  let result;
-
-  result = playRound();
-  console.log(result);
-
-  if (result.charAt(9) === 'W') {
-    playerScore++;
-  } else {
-    computerScore++;
-  }
-
-  result = playRound();
-  console.log(result);
-
-  if (result.charAt(9) === 'W') {
-    playerScore++;
-  } else {
-    computerScore++;
-  }
-
-  result = playRound();
-  console.log(result);
-
-  if (result.charAt(9) === 'W') {
-    playerScore++;
-  } else {
-    computerScore++;
-  }
-
-  result = playRound();
-  console.log(result);
-
-  if (result.charAt(9) === 'W') {
-    playerScore++;
-  } else {
-    computerScore++;
-  }
-
-  result = playRound();
-  console.log(result);
-
-  if (result.charAt(9) === 'W') {
-    playerScore++;
-  } else {
-    computerScore++;
-  }
-
-  playerScore > computerScore
-    ? (gameWinner = 'Player')
-    : (gameWinner = 'Computer');
-  return `***| ${gameWinner} Winner!!! ＼(￣O￣) |***`;
 }
 
 console.log(WELCOME_MESSAGE);
