@@ -11,6 +11,10 @@ const WELCOME_MESSAGE = `
 const buttons = document.querySelectorAll('button');
 const resultContainer = document.querySelector('.result-container');
 const resultMessage = document.querySelector('.result-message');
+const playerScore = document.querySelector('.player');
+const computerScore = document.querySelector('.computer');
+playerScore.innerText = 0;
+computerScore.innerText = 0;
 
 buttons.forEach((button) => {
   button.addEventListener('click', playRound);
@@ -83,23 +87,34 @@ function playRound() {
   function displayResult(result) {
 
     let message;
+    let gameWinner;
 
     switch (result) {
       case 1:
-        message = `You Win! ${playerSelection.toUpperCase()} beats 
-        ${computerSelection.toUpperCase()} (っ◕‿◕)っ`;
+        message = `You Win! ${playerSelection.toUpperCase()} beats ${computerSelection.toUpperCase()} (っ◕‿◕)っ`;
+        playerScore.innerText++
         break;
       case 0:
-        message = `You Lose! ${computerSelection.toUpperCase()} beats 
-        ${playerSelection.toUpperCase()} (╥﹏╥)`;
+        message = `You Lose! ${computerSelection.toUpperCase()} beats ${playerSelection.toUpperCase()} (╥﹏╥)`;
+        computerScore.innerText++
         break;
       default:
         message = 'Draw! ( ¬_¬)';
         break;
     }
 
+    if (playerScore.innerText == 5 || computerScore.innerText == 5) {
+      gameWinner = (playerScore.innerText > computerScore.innerText)
+        ? 'Player'
+        : 'Computer';
+
+      message = `${gameWinner.toUpperCase()} Winner!!! ୧(•̀ᴗ•́)୨`;
+
+      playerScore.innerText = 0;
+      computerScore.innerText = 0;
+    }
+
     resultMessage.innerText = message;
-    resultContainer.appendChild(resultMessage);
   }
 
   return displayResult(result);
