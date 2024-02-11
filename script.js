@@ -44,11 +44,43 @@ function getComputerChoice() {
   return computerChoice;
 }
 
+function displaySelection(player, computer) {
+
+  const playerSelectionIcon = document.querySelector(".player-selection");
+  const computerSelectionIcon = document.querySelector(".computer-selection");
+
+  switch (player) {
+    case ROCK:
+      playerSelectionIcon.innerText = "✊";
+      break;
+    case PAPER:
+      playerSelectionIcon.innerText = "✋";
+      break;
+    case SCISSORS:
+      playerSelectionIcon.innerText = "✌️";
+      break;
+  }
+
+  switch (computer) {
+    case ROCK:
+      computerSelectionIcon.innerText = "✊";
+      break;
+    case PAPER:
+      computerSelectionIcon.innerText = "✋";
+      break;
+    case SCISSORS:
+      computerSelectionIcon.innerText = "✌️";
+      break;
+  }
+}
+
 function playRound() {
 
   let result;
   let playerSelection = this.value;
   let computerSelection = getComputerChoice();
+
+  displaySelection(playerSelection, computerSelection);
 
   if (
     (playerSelection === ROCK && computerSelection === PAPER) ||
