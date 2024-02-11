@@ -1,0 +1,40 @@
+/*||RESET*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/*||GLOBAL*/
+html {
+  background-color: #012;
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #123;
+  border: 1px solid white;
+  color: #987;
+  font: clamp(1rem, 2.5vw, 2rem) monospace;
+  margin: 10px auto;
+  max-width: 1000px;
+  min-height: 90vh;
+  min-width: 300px;
+  padding: 20px;
+}
+
+header {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+button {
+  cursor: pointer;
+  font: inherit;
+}
+
+a:any-link {
+  color: #ef8;
+  text-decoration: none;
+}

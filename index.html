@@ -7,27 +7,48 @@
   <meta name="description"
         content="Project: Rock Paper Scissors - Foundations Course">
   <title>Odin Rock Paper Scissors</title>
+  <link rel="stylesheet" href="./style.css">
   <script src="./script.js" defer></script>
 </head>
 <body>
-  <h1>Rock Paper Scissors</h1>
-  
-  <hr>
-  <br>
-  
-  <button value="rock">Rock</button>
-  <button value="paper">Paper</button>
-  <button value="scissors">Scissors</button>
+  <header>
+    <h1>✨️ Rock Paper Scissors ✨️</h1>
+  </header>
 
   <hr>
 
-  <div class="result-container">
-    <p class="result-message"></p>
-  </div>
-  <div class="score-container">
-    <h2>Score</h2>
-    <p class="score">Player: <span class="player"></span></p>
-    <p class="score">Computer: <span class="computer"></span></p>
-  </div>
+  <main class="main">
+    <section class="main-round">
+      <div class="display-container">
+        <p class="player-selection">🖐️</p>
+      </div>
+      <div class="versus-container">
+        <p class="versus">VS</p>
+      </div>
+      <div class="display-container">
+        <p class="computer-selection">🖐️</p>
+      </div>
+    </section>
+
+    <section class="main-control">
+      <div class="score-container">
+        <p class="score">Player: <span class="player"></span></p>
+      </div>
+      <div class="buttons-container">
+        <button value="rock">Rock</button>
+        <button value="paper">Paper</button>
+        <button value="scissors">Scissors</button>
+      </div>
+      <div class="score-container">
+        <p class="score">Computer: <span class="computer"></span></p>
+      </div>
+    </section>
+
+    <section class="main-results">
+      <div class="result-container">
+        <p class="result-message"></p>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
