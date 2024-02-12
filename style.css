@@ -18,10 +18,9 @@ body {
   color: #987;
   font: clamp(1rem, 2.5vw, 2rem) monospace;
   margin: 10px auto;
-  max-width: 800px;
-  min-height: 90vh;
   min-width: 300px;
   padding: 20px;
+  width: 800px;
 }
 
 header {
@@ -116,6 +115,10 @@ a:any-link {
 }
 
 /*||RESULT*/
+.main-results {
+  min-height: 200px;
+}
+
 .result-container {
   font-size: 1.5em;
   text-align: center;
@@ -125,4 +128,19 @@ a:any-link {
 .result-winner {
   color: #ef8;
   font-size: 1.75em;
+}
+
+/*||FOOTER*/
+.footer {
+  flex-grow: 0.5;
+  margin-top: 20px;
+}
+
+.footer-info {
+  display: block;
+}
+
+.footer-info img {
+  display: inline;
+  width: 1.1em;
 }
