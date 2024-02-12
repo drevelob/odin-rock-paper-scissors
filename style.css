@@ -51,7 +51,7 @@ a:any-link {
 .main-round {
   align-items: center;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   min-height: 200px;
 }
 
@@ -61,6 +61,14 @@ a:any-link {
   font-size: 5em;
   margin: 10px;
   text-shadow: 3px 2px 3px black;
+}
+
+.versus {
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px 2px red;
+  font-size: 1.75em;
+  font-weight: bold;
+  padding: 10px;
 }
 
 /*||CONTROL*/
@@ -81,6 +89,7 @@ a:any-link {
 }
 
 .score-container span {
+  color: #ef8;
   font-size: 1.5em;
 }
 
@@ -107,7 +116,13 @@ a:any-link {
 }
 
 /*||RESULT*/
-.main-results {
-  border: 1px solid blue;
+.result-container {
+  font-size: 1.5em;
   text-align: center;
+  margin: 20px 80px;
+}
+
+.result-winner {
+  color: #ef8;
+  font-size: 1.75em;
 }

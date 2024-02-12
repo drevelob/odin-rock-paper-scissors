@@ -54,7 +54,7 @@ function displaySelection(player, computer) {
       playerSelectionIcon.innerText = "✊";
       break;
     case PAPER:
-      playerSelectionIcon.innerText = "✋";
+      playerSelectionIcon.innerText = "🖐️";
       break;
     case SCISSORS:
       playerSelectionIcon.innerText = "✌️";
@@ -66,7 +66,7 @@ function displaySelection(player, computer) {
       computerSelectionIcon.innerText = "✊";
       break;
     case PAPER:
-      computerSelectionIcon.innerText = "✋";
+      computerSelectionIcon.innerText = "🖐️";
       break;
     case SCISSORS:
       computerSelectionIcon.innerText = "✌️";
@@ -97,21 +97,24 @@ function playRound() {
   }
 
   function displayResult(result) {
-
     let message;
     let gameWinner;
 
+    resultMessage.className = "result-message";
+
     switch (result) {
       case 1:
-        message = `You Win! ${playerSelection.toUpperCase()} beats ${computerSelection.toUpperCase()} (っ◕‿◕)っ`;
-        playerScore.innerText++
+        message = `You Win! ${playerSelection.toUpperCase()} beats ${computerSelection.toUpperCase()} 
+        (っ◕‿◕)っ`;
+        playerScore.innerText++;
         break;
       case 0:
-        message = `You Lose! ${computerSelection.toUpperCase()} beats ${playerSelection.toUpperCase()} (╥﹏╥)`;
-        computerScore.innerText++
+        message = `You Lose! ${computerSelection.toUpperCase()} beats ${playerSelection.toUpperCase()} 
+        (╥﹏╥)`;
+        computerScore.innerText++;
         break;
       default:
-        message = 'Draw! ( ¬_¬)';
+        message = 'Draw! \n( ¬_¬)';
         break;
     }
 
@@ -122,6 +125,7 @@ function playRound() {
 
       message = `${gameWinner.toUpperCase()} Winner!!! ୧(•̀ᴗ•́)୨`;
 
+      resultMessage.className = 'result-winner';
       playerScore.innerText = 0;
       computerScore.innerText = 0;
     }
